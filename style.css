@@ -28,7 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 60px 20px 20px 20px; /* 네비게이션 바 높이만큼 padding-top 추가 */
   background-image: linear-gradient(135deg, #a29bfe 0%, #74b9ff 100%);
 }
 
@@ -45,6 +45,13 @@ body {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  /* 추가: 상단 고정 */
+  position: fixed;
+  top: 0;
+  left: 50%; /* 중앙 정렬 */
+  transform: translateX(-50%); /* 중앙 정렬 */
+  z-index: 1000; /* 다른 요소 위로 */
 }
 
 .main-nav a {
@@ -53,6 +60,8 @@ body {
   font-weight: bold;
   font-size: 1rem;
   transition: var(--transition);
+  /* 추가: 텍스트 줄바꿈 방지 */
+  white-space: nowrap;
 }
 
 .main-nav a:hover {
@@ -319,7 +328,8 @@ footer a:hover {
 /* Result Card Styles for Image Capture */
 .result-card {
   width: 500px !important; /* Fixed width for consistent capture */
-  height: 500px !important; /* Fixed height for 1:1 ratio */
+  height: auto !important; /* 16:9 비율을 위해 auto로 변경 */
+  aspect-ratio: 16 / 9; /* 16:9 비율 추가 */
   display: flex;
   flex-direction: column;
   justify-content: center;
