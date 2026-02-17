@@ -259,3 +259,17 @@ h2 {
   border-radius: 12px;
   word-break: keep-all;
 }
+
+/* Result Card Styles for Image Capture */
+.result-card {
+  width: 500px !important; /* Fixed width for consistent capture */
+  height: 500px !important; /* Fixed height for 1:1 ratio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px !important;
+  box-sizing: border-box !important;
+  border: 10px solid var(--primary-color);
+  background: #fff;
+}

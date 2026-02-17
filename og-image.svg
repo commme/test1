@@ -14,7 +14,7 @@
     font-family="Jua, sans-serif"
     font-size="80"
     fill="white">
-    나의 직업 운명은?
+    나의 잠재력은?
   </text>
   <text
     x="50%"
@@ -25,6 +25,6 @@
     font-size="40"
     fill="white"
     opacity="0.9">
-    7가지 질문으로 알아보는 직업 성향 테스트
+    직업 & N잡 성향 테스트
   </text>
 </svg>

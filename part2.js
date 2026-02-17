@@ -140,6 +140,11 @@ let scores = {};
 
 // Functions
 function startQuiz() {
+    // Reset URL
+    const url = new URL(window.location);
+    url.searchParams.delete('result');
+    history.pushState({}, '', url);
+
     currentQuestionIndex = 0;
     scores = { creative: 0, business: 0, knowledge: 0, tech: 0, artistic: 0, analytic: 0, active: 0, diligent: 0, social: 0, meticulous: 0 };
   
@@ -181,25 +186,41 @@ function handleAnswer(type) {
     }
 }
 
-function showResult() {
-    quizScreen.classList.remove('active');
-    quizScreen.classList.add('hidden');
-    resultScreen.classList.remove('hidden');
-    resultScreen.classList.add('active');
-  
-    let winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+function showResult(resultType) {
+    let winner = resultType;
 
-    // Handle ties by picking one of the tied types randomly
-    const maxScore = scores[winner];
-    const tiedWinners = Object.keys(scores).filter(key => scores[key] === maxScore);
-    if (tiedWinners.length > 1) {
-        winner = tiedWinners[Math.floor(Math.random() * tiedWinners.length)];
+    if (!winner) {
+        winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        const maxScore = scores[winner];
+        const tiedWinners = Object.keys(scores).filter(key => scores[key] === maxScore);
+        if (tiedWinners.length > 1) {
+            winner = tiedWinners[Math.floor(Math.random() * tiedWinners.length)];
+        }
     }
-
+    
     const resultData = results[winner];
   
     resultTitle.innerHTML = resultData.title; // Use innerHTML to render emoji
     resultDesc.textContent = resultData.desc;
+
+    // Hide other screens and show result screen
+    startScreen.classList.add('hidden');
+    quizScreen.classList.add('hidden');
+    resultScreen.classList.remove('hidden');
+    resultScreen.classList.add('active');
+
+    // Update URL without reloading page
+    const url = new URL(window.location);
+    url.searchParams.set('result', winner);
+    history.pushState({}, '', url);
+}
+
+function checkUrlForResult() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const result = urlParams.get('result');
+    if (result && results[result]) {
+        showResult(result);
+    }
 }
 
 function copyUrl() {
@@ -216,12 +237,14 @@ function saveResultAsImage() {
     const resultBox = document.querySelector("#result-screen-2 .content-box");
     const actionButtons = resultBox.querySelector(".action-buttons");
 
-    // Hide buttons before capturing
+    // Hide buttons and add card style before capturing
     if(actionButtons) actionButtons.style.display = 'none';
+    resultBox.classList.add('result-card');
 
     html2canvas(resultBox).then(canvas => {
-        // Show buttons again after capturing
+        // Show buttons and remove card style again
         if(actionButtons) actionButtons.style.display = 'flex';
+        resultBox.classList.remove('result-card');
 
         const dataUrl = canvas.toDataURL('image/png');
         const a = document.createElement('a');
@@ -238,3 +261,4 @@ startBtn.addEventListener('click', startQuiz);
 restartBtn.addEventListener('click', startQuiz);
 copyUrlBtn.addEventListener('click', copyUrl);
 saveImgBtn.addEventListener('click', saveResultAsImage);
+document.addEventListener('DOMContentLoaded', checkUrlForResult);
