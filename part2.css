@@ -55,6 +55,7 @@ body {
   font-weight: bold;
   font-size: 1rem;
   transition: var(--transition);
+  white-space: nowrap; /* Keep text on a single line */
 }
 
 .main-nav a:hover {
@@ -258,16 +259,18 @@ h2 {
   background-color: #f8f9fa;
   border-radius: 12px;
   word-break: keep-all;
+  text-align: left; /* Added for left alignment */
 }
 
 /* Result Card Styles for Image Capture */
 .result-card {
   width: 500px !important; /* Fixed width for consistent capture */
-  height: 500px !important; /* Fixed height for 1:1 ratio */
+  height: auto !important; /* Changed for 16:9 ratio */
+  aspect-ratio: 16 / 9; /* Added for 16:9 ratio */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Changed to flex-start for left alignment */
   padding: 40px !important;
   box-sizing: border-box !important;
   border: 10px solid var(--primary-color);
