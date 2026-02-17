@@ -1,0 +1,30 @@
+/* CSS for about.html */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+a {
+    color: #007BFF;
+}
+
+.home-link {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+}
