@@ -250,6 +250,158 @@ footer a {
   text-decoration: none;
 }
 
+/* Footer Styles */
+footer {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+footer a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
 footer a:hover {
   text-decoration: underline;
 }
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For smaller mobile devices */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .app-container {
+    min-height: 500px;
+    border-radius: 0; /* Full width on very small screens */
+  }
+
+  .screen {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    max-width: 280px;
+    margin-top: 15px;
+  }
+
+  .hero-image {
+    font-size: 4rem;
+    margin: 15px 0;
+  }
+
+  .question-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .option-btn {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+
+  .result-title {
+    font-size: 1.8rem;
+  }
+
+  .result-emoji {
+    font-size: 5rem;
+    margin: 15px 0;
+  }
+
+  .result-desc {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+/* For tablets and larger mobile devices */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  .app-container {
+    min-height: 550px;
+  }
+
+  .screen {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+  }
+
+  .btn {
+    font-size: 1.1rem;
+    max-width: 300px;
+  }
+
+  .hero-image {
+    font-size: 4.5rem;
+  }
+
+  .question-text {
+    font-size: 1.3rem;
+  }
+
+  .option-btn {
+    font-size: 1.05rem;
+  }
+
+  .result-title {
+    font-size: 2rem;
+  }
+
+  .result-emoji {
+    font-size: 5.5rem;
+  }
+
+  .result-desc {
+    font-size: 1.05rem;
+  }
+}
+
+/* For larger screens (desktops) - can adjust if needed but current styles are generally for desktop */
+@media (min-width: 769px) {
+  .app-container {
+    max-width: 500px; /* Keep consistent with base */
+  }
+}
+

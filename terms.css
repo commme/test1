@@ -1,0 +1,74 @@
+body { 
+    /* font-family, line-height, color, background-color are handled by style.css */
+    padding: 20px; 
+    max-width: 800px; 
+    margin: 20px auto; 
+    background-color: var(--card-bg); /* Use card background for consistency */
+    border: 1px solid #ddd; 
+    border-radius: var(--border-radius); /* Use consistent border-radius */
+    box-shadow: var(--shadow); /* Use consistent shadow */
+}
+h1 { 
+    font-family: var(--font-title); /* Use consistent font */
+    text-align: center; 
+    color: var(--primary-color); /* Use consistent primary color */
+    font-size: 2em; /* Adjusted for specific page */
+    margin-bottom: 20px;
+}
+p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+    color: var(--text-color);
+}
+.content { 
+    margin-top: 20px; 
+}
+a { 
+    color: var(--primary-color); /* Use consistent primary color */
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.home-link { 
+    display: block; 
+    text-align: center; 
+    margin-top: 30px; 
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        margin: 15px auto;
+        border-radius: 5px;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+    .content {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        margin: 10px auto;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    h1 {
+        font-size: 1.3em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    .home-link {
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+}

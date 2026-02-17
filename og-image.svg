@@ -1,0 +1,30 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="og-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#74b9ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og-gradient)" />
+  <text
+    x="50%"
+    y="45%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="Jua, sans-serif"
+    font-size="80"
+    fill="white">
+    나의 직업 운명은?
+  </text>
+  <text
+    x="50%"
+    y="60%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="Noto Sans KR, sans-serif"
+    font-size="40"
+    fill="white"
+    opacity="0.9">
+    7가지 질문으로 알아보는 직업 성향 테스트
+  </text>
+</svg>
