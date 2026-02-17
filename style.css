@@ -270,6 +270,7 @@ h2 {
   background-color: #f8f9fa;
   border-radius: 12px;
   word-break: keep-all;
+  text-align: left; /* 추가: 왼쪽 정렬 */
 }
 
 .action-buttons {
@@ -338,6 +339,11 @@ footer a:hover {
   box-sizing: border-box !important;
   border: 10px solid var(--primary-color);
   background: #fff;
+}
+
+/* FAQ Styles */
+.faq-answer {
+    text-align: left;
 }
 
 /* --- Media Queries for Responsiveness --- */
@@ -483,4 +489,6 @@ footer a:hover {
     max-width: 500px; /* Keep consistent with base */
   }
 }
+
+
 

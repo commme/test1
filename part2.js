@@ -271,7 +271,7 @@ function showResult(resultType) {
     const resultData = results[winner];
   
     resultTitle.innerHTML = resultData.title; // Use innerHTML to render emoji
-    resultDesc.textContent = resultData.desc;
+    resultDesc.innerHTML = resultData.desc;
 
     // Hide other screens and show result screen
     startScreen.classList.add('hidden');
