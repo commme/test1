@@ -279,6 +279,25 @@ h2 {
   margin-top: 0;
 }
 
+/* Next Test Button */
+.next-test-container {
+  text-align: center;
+  padding: 0 20px 20px 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#next-test-btn {
+  background-color: var(--secondary-color);
+  font-size: 1.1rem;
+  max-width: 100%;
+  width: 100%;
+}
+
+#next-test-btn:hover {
+  background-color: #00b5b0;
+}
+
 /* Footer Styles */
 footer {
   width: 100%;
