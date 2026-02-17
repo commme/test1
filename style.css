@@ -282,15 +282,14 @@ h2 {
 /* Next Test Button */
 .next-test-container {
   text-align: center;
-  padding: 0 20px 20px 20px;
-  width: 100%;
-  max-width: 500px;
+  margin-top: 20px; /* Add margin-top for spacing from action-buttons */
+  padding: 0; /* Remove horizontal padding */
 }
 
 #next-test-btn {
   background-color: var(--secondary-color);
   font-size: 1.1rem;
-  max-width: 100%;
+  max-width: 300px; /* Limit width to be consistent with other buttons */
   width: 100%;
 }
 
