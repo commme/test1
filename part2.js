@@ -214,7 +214,15 @@ function copyUrl() {
 
 function saveResultAsImage() {
     const resultBox = document.querySelector("#result-screen-2 .content-box");
+    const actionButtons = resultBox.querySelector(".action-buttons");
+
+    // Hide buttons before capturing
+    if(actionButtons) actionButtons.style.display = 'none';
+
     html2canvas(resultBox).then(canvas => {
+        // Show buttons again after capturing
+        if(actionButtons) actionButtons.style.display = 'flex';
+
         const dataUrl = canvas.toDataURL('image/png');
         const a = document.createElement('a');
         a.href = dataUrl;

@@ -188,7 +188,18 @@ function copyUrl() {
 
 function saveResultAsImage() {
   const resultBox = document.querySelector("#result-screen .content-box");
+  const actionButtons = resultBox.querySelector(".action-buttons");
+  const nextTestContainer = resultBox.querySelector(".next-test-container");
+
+  // Hide buttons before capturing
+  if(actionButtons) actionButtons.style.display = 'none';
+  if(nextTestContainer) nextTestContainer.style.display = 'none';
+
   html2canvas(resultBox).then(canvas => {
+    // Show buttons again after capturing
+    if(actionButtons) actionButtons.style.display = 'flex';
+    if(nextTestContainer) nextTestContainer.style.display = 'block';
+
     const dataUrl = canvas.toDataURL('image/png');
     const a = document.createElement('a');
     a.href = dataUrl;
