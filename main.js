@@ -4,6 +4,8 @@ const quizScreen = document.getElementById('quiz-screen');
 const resultScreen = document.getElementById('result-screen');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
+const copyUrlBtn = document.getElementById('copy-url-btn');
+const saveImgBtn = document.getElementById('save-img-btn');
 const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
 const progressBar = document.getElementById('progress-bar');
@@ -102,6 +104,9 @@ let scores = {
 // Event Listeners
 startBtn.addEventListener('click', startQuiz);
 restartBtn.addEventListener('click', startQuiz);
+copyUrlBtn.addEventListener('click', copyUrl);
+saveImgBtn.addEventListener('click', saveResultAsImage);
+
 
 // Functions
 function startQuiz() {
@@ -169,4 +174,27 @@ function showResult() {
   resultTitle.textContent = resultData.title;
   resultEmoji.textContent = resultData.emoji;
   resultDesc.textContent = resultData.desc;
+}
+
+function copyUrl() {
+  const url = window.location.href;
+  navigator.clipboard.writeText(url).then(() => {
+    alert("URL이 클립보드에 복사되었습니다!");
+  }).catch(err => {
+    console.error('URL 복사 실패:', err);
+    alert("URL 복사에 실패했습니다.");
+  });
+}
+
+function saveResultAsImage() {
+  const resultBox = document.querySelector("#result-screen .content-box");
+  html2canvas(resultBox).then(canvas => {
+    const dataUrl = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = '나의_직업_운명_결과.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
 }

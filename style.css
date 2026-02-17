@@ -263,6 +263,22 @@ h2 {
   word-break: keep-all;
 }
 
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.action-buttons .btn {
+  width: auto;
+  flex: 1;
+  font-size: 1rem;
+  padding: 12px 10px;
+  margin-top: 0;
+}
+
 /* Footer Styles */
 footer {
   width: 100%;
