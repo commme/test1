@@ -6,6 +6,8 @@ const quizScreen = document.getElementById('quiz-screen-2');
 const resultScreen = document.getElementById('result-screen-2');
 const startBtn = document.getElementById('start-btn-2');
 const restartBtn = document.getElementById('restart-btn-2');
+const copyUrlBtn = document.getElementById('copy-url-btn-2');
+const saveImgBtn = document.getElementById('save-img-btn-2');
 const questionText = document.getElementById('question-text-2');
 const optionsContainer = document.getElementById('options-container-2');
 const progressBar = document.getElementById('progress-bar-2');
@@ -200,9 +202,31 @@ function showResult() {
     resultDesc.textContent = resultData.desc;
 }
 
+function copyUrl() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        alert("URL이 클립보드에 복사되었습니다!");
+    }).catch(err => {
+        console.error('URL 복사 실패:', err);
+        alert("URL 복사에 실패했습니다.");
+    });
+}
+
+function saveResultAsImage() {
+    const resultBox = document.querySelector("#result-screen-2 .content-box");
+    html2canvas(resultBox).then(canvas => {
+        const dataUrl = canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = '나의_N잡_적성_결과.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
+}
+
 // Event Listeners
 startBtn.addEventListener('click', startQuiz);
 restartBtn.addEventListener('click', startQuiz);
-
-// Initial call if needed (or just wait for user action)
-// For part2, we wait for the user to click the start button.
+copyUrlBtn.addEventListener('click', copyUrl);
+saveImgBtn.addEventListener('click', saveResultAsImage);
