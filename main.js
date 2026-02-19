@@ -1,3 +1,16 @@
+// --- 네비게이션 토글 ---
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mainNav.classList.toggle('nav-open');
+        });
+    }
+});
 // DOM Elements
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
